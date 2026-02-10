@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -17,6 +17,20 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem('token'));
 
+  // Load user data
+  const loadUser = useCallback(async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/auth/me');
+      setUser(response.data.data);
+    } catch (error) {
+      console.error('Error loading user:', error);
+      localStorage.removeItem('token');
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   // Set axios defaults
   useEffect(() => {
     if (token) {
@@ -25,20 +39,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setLoading(false);
     }
-  }, [token]);
-
-  // Load user data
-  const loadUser = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/auth/me');
-      setUser(response.data.data);
-    } catch (error) {
-      console.error('Error loading user:', error);
-      logout();
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [token, loadUser]);
 
   // Login
   const login = async (email, password) => {

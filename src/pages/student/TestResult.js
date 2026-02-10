@@ -11,9 +11,9 @@ const TestResult = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchResult();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchResult = async () => {

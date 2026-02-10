@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from '../../utils/axios';
 import Navbar from '../../components/Navbar';
 import { toast } from 'react-toastify';
-import { FiPlus, FiEdit, FiTrash2 } from 'react-icons/fi';
+import { FiPlus, FiTrash2 } from 'react-icons/fi';
 
 const QuestionBank = () => {
   const [questions, setQuestions] = useState([]);
@@ -14,6 +14,7 @@ const QuestionBank = () => {
   useEffect(() => {
     fetchQuestions();
     fetchSubjects();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchQuestions = async () => {
@@ -56,6 +57,7 @@ const QuestionBank = () => {
 
   useEffect(() => {
     fetchQuestions();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   const getDifficultyBadge = (difficulty) => {
