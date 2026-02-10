@@ -1,0 +1,122 @@
+/* Test Result Page Styles */
+
+/* Stat Cards */
+.result-stat-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  transition: transform 0.2s ease;
+}
+
+.result-stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.result-stat-blue {
+  background-color: #f0f9ff;
+}
+
+.result-stat-green {
+  background-color: #f0fdf4;
+}
+
+.result-stat-yellow {
+  background-color: #fef3c7;
+}
+
+.result-stat-value {
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.result-stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Test Details Card */
+.result-details-card {
+  background-color: #f9fafb;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.result-detail-item {
+  padding: 10px 0;
+  color: var(--text-primary, #1f2937);
+  font-size: 15px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.result-detail-item:last-child {
+  border-bottom: none;
+}
+
+.result-detail-item strong {
+  color: var(--text-primary, #1f2937);
+}
+
+.result-detail-item span {
+  color: var(--text-secondary, #6b7280);
+}
+
+/* ========= Dark Mode ========= */
+[data-theme='dark'] .result-stat-blue {
+  background-color: #0c2d48;
+  border-color: #1e4a6e;
+}
+
+[data-theme='dark'] .result-stat-green {
+  background-color: #0a2e1a;
+  border-color: #1a5c35;
+}
+
+[data-theme='dark'] .result-stat-yellow {
+  background-color: #3d2e0a;
+  border-color: #6b5220;
+}
+
+[data-theme='dark'] .result-stat-value {
+  /* Make values brighter in dark mode */
+}
+
+[data-theme='dark'] .result-stat-blue .result-stat-value {
+  color: #38bdf8 !important;
+}
+
+[data-theme='dark'] .result-stat-green .result-stat-value {
+  color: #4ade80 !important;
+}
+
+[data-theme='dark'] .result-stat-yellow .result-stat-value {
+  color: #fbbf24 !important;
+}
+
+[data-theme='dark'] .result-stat-label {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .result-details-card {
+  background-color: var(--card-bg, #1e293b);
+  border-color: #334155;
+}
+
+[data-theme='dark'] .result-detail-item {
+  color: #e5e7eb;
+  border-bottom-color: #334155;
+}
+
+[data-theme='dark'] .result-detail-item strong {
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .result-detail-item span {
+  color: #9ca3af;
+}
