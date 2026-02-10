@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../utils/axios';
 import Navbar from '../../components/Navbar';
@@ -17,12 +17,7 @@ const ApplyLeave = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchSubjects();
-    fetchUserProfile();
-  }, []);
-
-  const fetchUserProfile = async () => {
+  const fetchUserProfile = useCallback(async () => {
     try {
       const response = await axios.get('/auth/me');
       const department = response.data.data.department;
@@ -34,7 +29,12 @@ const ApplyLeave = () => {
     } catch (error) {
       console.error('Error fetching user profile:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchSubjects();
+    fetchUserProfile();
+  }, [fetchUserProfile]);
 
   const getSuggestedSubjects = (department) => {
     const departmentSubjects = {

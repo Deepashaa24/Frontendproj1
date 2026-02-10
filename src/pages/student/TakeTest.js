@@ -38,6 +38,7 @@ const TakeTest = () => {
   }, [test]);
 
   // Fetch test
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchTest();
   }, []);
@@ -257,6 +258,7 @@ const TakeTest = () => {
   };
 
   // Timer
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (timeLeft <= 0) return;
     const timer = setInterval(() => {

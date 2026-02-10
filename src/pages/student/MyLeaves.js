@@ -24,17 +24,6 @@ const MyLeaves = () => {
     }
   };
 
-  const getStatusBadge = (status) => {
-    const badges = {
-      'pending': 'badge-secondary',
-      'test-assigned': 'badge-info',
-      'test-completed': 'badge-warning',
-      'approved': 'badge-success',
-      'rejected': 'badge-danger'
-    };
-    return badges[status] || 'badge-secondary';
-  };
-
   const getStatusText = (status) => {
     const texts = {
       'pending': 'Pending',
